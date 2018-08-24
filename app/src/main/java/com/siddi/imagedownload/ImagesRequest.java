@@ -1,4 +1,4 @@
-package com.example.nooor.imagedownload;
+package com.siddi.imagedownload;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -14,7 +14,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 /**
- * Created by nooor on 24/08/18.
+ * Created by siddi on 24/08/18.
  */
 
 public class ImagesRequest extends AsyncTask<String, String, String> {

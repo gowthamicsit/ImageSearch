@@ -1,7 +1,7 @@
-package com.example.nooor.imagedownload;
+package com.siddi.imagedownload;
 
 /**
- * Created by nooor on 24/08/18.
+ * Created by siddi on 24/08/18.
  */
 
 public class Constants {
