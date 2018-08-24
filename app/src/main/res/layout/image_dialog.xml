@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/image_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/view_border"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/title"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:contentDescription="@string/image"
+            android:id="@+id/image_close"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:drawable/ic_menu_close_clear_cancel"
+            android:backgroundTint="@color/black"
+            android:layout_marginRight="10dp"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_below="@+id/layout_top"
+        android:contentDescription="@string/image"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:id="@+id/image"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="10dp"
+        android:padding="16dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

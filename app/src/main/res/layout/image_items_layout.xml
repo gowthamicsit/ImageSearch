@@ -4,6 +4,7 @@
     android:layout_width="130dp"
     android:layout_height="150dp"
     android:orientation="vertical"
+    android:id="@+id/list_item"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout

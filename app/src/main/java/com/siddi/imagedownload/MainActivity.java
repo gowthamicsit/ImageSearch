@@ -2,6 +2,7 @@ package com.siddi.imagedownload;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +18,9 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -171,16 +174,19 @@ public class MainActivity extends AppCompatActivity {
             return 0;
         }
 
+        String url;
+
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(final int i, View view, ViewGroup viewGroup) {
            // view = (LayoutInflater.from(MainActivity.this)).inflate(R.layout.image_items_layout, null); // inflate the layout
 
             view = LayoutInflater.from(context).inflate(R.layout.image_items_layout, null);
 
             ImageView icon = (ImageView) view.findViewById(R.id.image);
             TextView text = (TextView) view.findViewById(R.id.tv_title);
+            LinearLayout list_item = (LinearLayout) view.findViewById(R.id.list_item);
 
-            String url = "http://farm" + list.get(i).getFarm() + ".static.flickr.com/" + list.get(i).getServer() + "/" + list.get(i).getId() + "_" + list.get(i).getSecret() + ".jpg";
+            url = "http://farm" + list.get(i).getFarm() + ".static.flickr.com/" + list.get(i).getServer() + "/" + list.get(i).getId() + "_" + list.get(i).getSecret() + ".jpg";
 
             Glide.with(context)
                     .load(url)
@@ -192,7 +198,17 @@ public class MainActivity extends AppCompatActivity {
             text.setText(list.get(i).getTitle());
 
 
+            list_item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Toast.makeText(MainActivity.this, list.get(pos).getTitle(), Toast.LENGTH_SHORT).show();
 
+                    Intent intent=new Intent(context,ShowImage.class);
+                    intent.putExtra("imagename", list.get(i).getTitle());
+                    intent.putExtra("imagelink", "http://farm" + list.get(i).getFarm() + ".static.flickr.com/" + list.get(i).getServer() + "/" + list.get(i).getId() + "_" + list.get(i).getSecret() + ".jpg");
+                    context.startActivity(intent);
+                }
+            });
             return view;
         }
     }
