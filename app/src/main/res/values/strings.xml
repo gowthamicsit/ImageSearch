@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Flickr Image Search</string>
+    <string name="search_hint">Search Image Here</string>
+    <string name="image">image</string>
+    <string name="title">Title</string>
+</resources>
