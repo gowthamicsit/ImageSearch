@@ -60,6 +60,7 @@ public class ShowImage extends Activity {
 
         Glide.with(this)
                 .load(imagelink)
+                .placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .skipMemoryCache(true)

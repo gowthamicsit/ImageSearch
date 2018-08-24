@@ -1,5 +1,6 @@
 package com.siddi.imagedownload;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -23,13 +24,27 @@ public class ImagesRequest extends AsyncTask<String, String, String> {
     Context context;
     ImageListener imageListener;
     String responseString;
+    ProgressDialog progressDialog;
 
 
     public ImagesRequest(Context context, String text, ImageListener imageListener) {
         this.context = context;
         this.imageListener = imageListener;
+        progressDialog = new ProgressDialog(context);
 
         query = Constants.ImageRequest + text;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+
+        if(progressDialog != null) {
+            progressDialog.setMessage("Loading images..Please wait");
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
     }
 
     @Override
@@ -68,5 +83,7 @@ public class ImagesRequest extends AsyncTask<String, String, String> {
 
         imageListener.imageResponse(responseString);
 
+        if(progressDialog != null && progressDialog.isShowing())
+            progressDialog.dismiss();
     }
 }

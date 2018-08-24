@@ -190,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
             Glide.with(context)
                     .load(url)
+                    .placeholder(R.mipmap.ic_launcher)
                     .error(R.mipmap.ic_launcher)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
